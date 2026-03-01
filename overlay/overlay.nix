@@ -27,6 +27,14 @@ let
           (builtins.readFile old.setupHook)
       );
     });
+  fixQtDeclarativeQmlPrefix = qtQmlPrefix: qtdeclarativeDrv:
+    qtdeclarativeDrv.overrideAttrs (old: {
+      postPatch = (old.postPatch or "") + ''
+        substituteInPlace src/qml/qml/qqmlimport.cpp \
+          --replace-fail 'QStringLiteral("../" NIXPKGS_QML2_IMPORT_PREFIX);' \
+                         'QStringLiteral("../${qtQmlPrefix}");'
+      '';
+    });
 in
   {
     # Misc. tools.
@@ -97,10 +105,12 @@ in
     #
     qt5 = if isCross then super.qt5.overrideScope (_: qtPrev: {
       qtbase = relaxedCrossQtbaseHook qtPrev.qtbase;
+      qtdeclarative = fixQtDeclarativeQmlPrefix qtPrev.qtbase.qtQmlPrefix qtPrev.qtdeclarative;
     }) else super.qt5;
 
     libsForQt5 = if isCross then super.libsForQt5.overrideScope (_: qtPrev: {
       qtbase = relaxedCrossQtbaseHook qtPrev.qtbase;
+      qtdeclarative = fixQtDeclarativeQmlPrefix qtPrev.qtbase.qtQmlPrefix qtPrev.qtdeclarative;
     }) else super.libsForQt5;
 
     pkgsBuildHost =
@@ -108,14 +118,14 @@ in
         super.pkgsBuildHost // {
           qt5 = super.pkgsBuildHost.qt5.overrideScope (_: qtPrev: {
             qtsvg = withScopedQmake super.pkgsBuildHost.qt5.qmake qtPrev.qtsvg;
-            qtdeclarative = withScopedQmake super.pkgsBuildHost.qt5.qmake qtPrev.qtdeclarative;
+            qtdeclarative = withScopedQmake super.pkgsBuildHost.qt5.qmake (fixQtDeclarativeQmlPrefix qtPrev.qtbase.qtQmlPrefix qtPrev.qtdeclarative);
             qttools = withScopedQmake super.pkgsBuildHost.qt5.qmake qtPrev.qttools;
             qtquickcontrols = withScopedQmake super.pkgsBuildHost.qt5.qmake qtPrev.qtquickcontrols;
             qtwayland = withScopedQmake super.pkgsBuildHost.qt5.qmake qtPrev.qtwayland;
           });
           libsForQt5 = super.pkgsBuildHost.libsForQt5.overrideScope (_: qtPrev: {
             qtsvg = withScopedQmake super.pkgsBuildHost.libsForQt5.qmake qtPrev.qtsvg;
-            qtdeclarative = withScopedQmake super.pkgsBuildHost.libsForQt5.qmake qtPrev.qtdeclarative;
+            qtdeclarative = withScopedQmake super.pkgsBuildHost.libsForQt5.qmake (fixQtDeclarativeQmlPrefix qtPrev.qtbase.qtQmlPrefix qtPrev.qtdeclarative);
             qttools = withScopedQmake super.pkgsBuildHost.libsForQt5.qmake qtPrev.qttools;
             qtquickcontrols = withScopedQmake super.pkgsBuildHost.libsForQt5.qmake qtPrev.qtquickcontrols;
             qtwayland = withScopedQmake super.pkgsBuildHost.libsForQt5.qmake qtPrev.qtwayland;

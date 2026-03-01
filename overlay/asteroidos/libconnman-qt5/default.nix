@@ -5,7 +5,6 @@
   fetchFromGitHub,
   pkg-config,
   qt5,
-  libsForQt5,
 }:
 
 stdenv.mkDerivation rec {
@@ -21,10 +20,12 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [
     pkg-config
-    libsForQt5.qmake
+    buildPackages.qt5.qtbase.dev
   ];
 
-  buildInputs = [ ];
+  buildInputs = [
+    qt5.qtbase
+  ];
 
   depsBuildBuild = lib.optionals (stdenv.buildPlatform != stdenv.hostPlatform) [
     buildPackages.stdenv.cc
