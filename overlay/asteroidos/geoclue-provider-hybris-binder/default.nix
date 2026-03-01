@@ -28,7 +28,7 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [
     pkg-config
     perl
-    qt5.qmake
+    buildPackages.qt5.qtbase.dev
   ];
 
   buildInputs = [

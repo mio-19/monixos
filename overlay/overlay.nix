@@ -3,6 +3,15 @@ final: super:
 let
   callPackage = final.callPackage;
   isCross = final.stdenv.buildPlatform.config != final.stdenv.hostPlatform.config;
+  mkQtScope = qtScope: qtScope.overrideScope (_: qtPrev: {
+    qtbase = relaxedCrossQtbaseHook qtPrev.qtbase;
+    qtdeclarative = fixQtDeclarativeQmlPrefix qtPrev.qtbase.qtQmlPrefix qtPrev.qtdeclarative;
+  } // final.lib.optionalAttrs isCross {
+    # Cross qtwayland may not install host tools; avoid failing on missing bin output.
+    qtwayland = qtPrev.qtwayland.overrideAttrs (_: {
+      outputs = [ "out" "dev" ];
+    });
+  });
   relaxedCrossQtbaseHook = qtbaseDrv:
     qtbaseDrv.overrideAttrs (old: {
       setupHook = final.writeText "qtbase-setup-hook.sh" (
@@ -11,7 +20,7 @@ let
             "        echo >&2 \"Error: detected mismatched Qt dependencies:\"\n        echo >&2 \"    @dev@\"\n        echo >&2 \"    $__nix_qtbase\"\n        exit 1\n"
           ]
           [
-            "        echo >&2 \"Error: detected mismatched Qt dependencies:\"\n        echo >&2 \"    @dev@\"\n        echo >&2 \"    $__nix_qtbase\"\n        # Allow the expected host-vs-target Qt split in cross builds.\n        if [[ \"$__nix_qtbase\" != \"${super.pkgsBuildHost.qt5.qtbase.dev}\" ]]; then\n            exit 1\n        fi\n"
+            "        expected=\"@dev@\"\n        got_base=\"\${__nix_qtbase##*/}\"\n        expected_base=\"\${expected##*/}\"\n        got_pkg=\"\${got_base#*-}\"\n        expected_pkg=\"\${expected_base#*-}\"\n        if [ \"$got_pkg\" != \"$expected_pkg\" ]; then\n            echo >&2 \"Error: detected mismatched Qt dependencies:\"\n            echo >&2 \"    @dev@\"\n            echo >&2 \"    $__nix_qtbase\"\n            echo >&2 \"    got_pkg=$got_pkg expected_pkg=$expected_pkg\"\n            exit 1\n        fi\n"
           ]
           (builtins.readFile old.setupHook)
       );
@@ -92,23 +101,9 @@ in
     #
     # All that follows will have to be cleaned and then upstreamed.
     #
-    qt5 = if isCross then super.qt5.overrideScope (_: qtPrev: {
-      qtbase = relaxedCrossQtbaseHook qtPrev.qtbase;
-      qtdeclarative = fixQtDeclarativeQmlPrefix qtPrev.qtbase.qtQmlPrefix qtPrev.qtdeclarative;
-      # Cross qtwayland may not install host tools; avoid failing on missing bin output.
-      qtwayland = qtPrev.qtwayland.overrideAttrs (_: {
-        outputs = [ "out" "dev" ];
-      });
-    }) else super.qt5;
+    qt5 = if isCross then mkQtScope super.qt5 else super.qt5;
 
-    libsForQt5 = if isCross then super.libsForQt5.overrideScope (_: qtPrev: {
-      qtbase = relaxedCrossQtbaseHook qtPrev.qtbase;
-      qtdeclarative = fixQtDeclarativeQmlPrefix qtPrev.qtbase.qtQmlPrefix qtPrev.qtdeclarative;
-      # Keep outputs aligned with qt5 override.
-      qtwayland = qtPrev.qtwayland.overrideAttrs (_: {
-        outputs = [ "out" "dev" ];
-      });
-    }) else super.libsForQt5;
+    libsForQt5 = if isCross then mkQtScope super.libsForQt5 else super.libsForQt5;
 
     pkgsBuildHost = super.pkgsBuildHost;
 
