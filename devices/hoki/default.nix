@@ -32,7 +32,8 @@ in
       height = 416;
     };
   };
-  mobile.system.system = "aarch64-linux";
+  # Upstream meta-hoki uses armv7 (32-bit) userspace.
+  mobile.system.system = "armv7l-linux";
 
   mobile.boot.stage-1.kernel.package = pkgs.callPackage ./kernel {
     inherit sources;

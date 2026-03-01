@@ -120,7 +120,10 @@ in
     }
     {
       mobile = mkIf cfg.qualcomm-sdm429w.enable {
-        system.system = "aarch64-linux";
+        # Smartwatch exception (e.g. Fossil Gen 6 / AsteroidOS hoki):
+        # this 64-bit SoC runs a 32-bit userspace for Android compatibility.
+        # Other Qualcomm SoCs in this module do not currently use this layout.
+        system.system = mkDefault "aarch64-linux";
       };
     }
     {

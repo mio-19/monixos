@@ -15,6 +15,12 @@ stdenv.mkDerivation {
   };
 
   dontBuild = true;
+  # Archive contains multiple top-level directories (`system/`, `vendor/`).
+  sourceRoot = ".";
+  # Android vendor/system blobs are prebuilt foreign binaries.
+  # Avoid ELF rewriting/stripping during fixup.
+  dontPatchELF = true;
+  dontStrip = true;
 
   installPhase = ''
     runHook preInstall

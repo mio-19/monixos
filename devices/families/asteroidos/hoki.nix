@@ -18,7 +18,11 @@ let
     };
   optionalPkgs =
     builtins.filter
-      (name: builtins.hasAttr name pkgs)
+      (
+        name:
+        builtins.hasAttr name pkgs
+        && lib.meta.availableOn pkgs.stdenv.hostPlatform (builtins.getAttr name pkgs)
+      )
       [
         # Upstream meta-hoki machine extras.
         "qrtr"
