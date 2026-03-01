@@ -6,7 +6,7 @@
   ...
 }:
 let
-  includeAndroidSystemData = pkgs.config.allowUnfree or false;
+  includeAndroidSystemData = true;
   missingParityPkgs =
     builtins.filter
       (name: !(builtins.hasAttr name pkgs))
@@ -25,13 +25,12 @@ let
       ];
 in
 {
+  nixpkgs.config.allowUnfree = lib.mkDefault true;
+
   warnings =
     (map
       (name: "AsteroidOS hoki parity: `${name}` is not packaged in this tree yet.")
       missingParityPkgs)
-    ++ lib.optionals (!includeAndroidSystemData) [
-      "AsteroidOS hoki parity: `android-system-data-hoki` is available but disabled because unfree packages are not allowed."
-    ]
     ++ lib.optionals (!config.mobile.boot.stage-1.kernel.modular) [
       "AsteroidOS hoki parity: `linux-audio-modules-hoki` is packaged but not enabled because this kernel path is non-modular."
     ];
