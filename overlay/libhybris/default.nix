@@ -7,7 +7,6 @@ stdenv
 
 , android-headers
 , file
-, useLegacyProperties ? false
 }:
 
 let
@@ -17,20 +16,16 @@ let
 in
 stdenv.mkDerivation {
   pname = "libhybris";
-  version = "2019-12-02";
+  version = "unstable-2026-03-01";
 
   src = fetchFromGitHub {
     owner = "libhybris";
     repo = "libhybris";
-    rev = "d27c1a85703db8dea4539ceb4d869792fd78ee37";
-    sha256 = "014wrpzd1w2bbza5jsy51qhhn9lvffz5h8l6mkwvkkn98i3h9yzn";
+    rev = "69fe409485f3bd815d03d895209b6d3548d44299";
+    hash = "sha256-r7gabMv+4tJBrAu62LiqGNCEm64eGHvrHhxCqoLzc4A=";
   };
 
-  patches = [
-    ./0001-Removes-failing-test-for-wayland-less-builds.patch
-  ]
-    ++ lib.optional useLegacyProperties ./0001-HACK-Rely-on-legacy-properties-rather-than-native-pr.patch
-  ;
+  patches = [ ];
 
   postAutoreconf = ''
     substituteInPlace configure \
@@ -38,9 +33,7 @@ stdenv.mkDerivation {
   '';
 
   NIX_CFLAGS_COMPILE = [
-    # This libhybris is old, but even libhybris from 2024 fails to compile
-    # due to many warnings. Let's instead ignore the warnings, and instead
-    # plan to get an updated adbd that maybe does not depend on libhybris.
+    # Upstream still emits warnings that break with modern toolchains.
     "-Wno-implicit-function-declaration"
     "-Wno-incompatible-pointer-types"
     "-Wno-int-conversion"

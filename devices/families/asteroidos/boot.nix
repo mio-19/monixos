@@ -14,11 +14,14 @@
     asteroidosPackages."udev-droid-system"
   ];
 
+  # meta-hoki overrides BlueZ main.conf with an empty machine-specific file.
+  environment.etc."bluetooth/main.conf".text = "";
+
   systemd.services.bluebinder = {
     description = "Simple proxy for Android binder Bluetooth through vhci";
-    after = [ "droid-hal-init.service" ];
+    after = [ "android-system.service" ];
     before = [ "bluetooth.service" ];
-    wantedBy = [ "graphical.target" ];
+    wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       Type = "notify";
       EnvironmentFile = "-/var/lib/environment/bluebinder/*.conf";
@@ -27,24 +30,18 @@
       ExecStartPost = "${asteroidosPackages.bluebinder}/libexec/bluebinder/bluebinder_post.sh";
       Restart = "always";
       TimeoutStartSec = "60";
-      CapabilityBoundingSet = "CAP_DAC_READ_SEARCH";
-      DeviceAllow = [ "/dev/hwbinder rw" "/dev/vhci rw" "/dev/rfkill r" ];
-      DevicePolicy = "strict";
-      NoNewPrivileges = true;
-      RestrictAddressFamilies = "AF_BLUETOOTH";
-      PrivateTmp = true;
-      ProtectHome = true;
-      ProtectSystem = "full";
     };
   };
 
   systemd.services.android-init = {
     description = "/system/bin/init compatibility service for vendor daemons";
     after = [ "local-fs.target" ];
-    before = [ "basic.target" "network.target" "bluetooth.service" ];
+    before = [ "basic.target" "network.target" "bluetooth.service" "ofono.service" "sensord.service" ];
     wantedBy = [ "graphical.target" ];
+    conflicts = [ "shutdown.target" ];
     serviceConfig = {
       Type = "simple";
+      DefaultDependencies = false;
       ExecStartPre = "${pkgs.coreutils}/bin/touch /dev/.coldboot_done";
       ExecStart = "/usr/libexec/hal-droid/system/bin/init";
     };

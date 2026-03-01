@@ -24,7 +24,9 @@ let
     inherit asteroidosQmlAsteroid;
   };
 in
+rec
 {
+  metaSmartwatchSrc = asteroidosMetaSmartwatch;
   qml-asteroid = qmlAsteroid;
   bluebinder = pkgs.callPackage ../../../overlay/asteroidos/bluebinder {
     inherit merHybrisBluebinder;
@@ -38,6 +40,22 @@ in
   "android-init-hoki" = pkgs.callPackage ../../../overlay/asteroidos/android-init-hoki {
     inherit asteroidosMetaSmartwatch asteroidosMetaAsteroid;
   };
+  libdbusaccess = pkgs.callPackage ../../../overlay/asteroidos/libdbusaccess { };
+  libncicore = pkgs.callPackage ../../../overlay/asteroidos/libncicore {
+    inherit asteroidosMetaAsteroid;
+  };
+  nfcd = pkgs.callPackage ../../../overlay/asteroidos/nfcd {
+    inherit asteroidosMetaAsteroid;
+    inherit libdbusaccess;
+  };
+  libnciplugin = pkgs.callPackage ../../../overlay/asteroidos/libnciplugin {
+    inherit asteroidosMetaAsteroid;
+    inherit nfcd libncicore;
+  };
+  "nfcd-binder-plugin" = pkgs.callPackage ../../../overlay/asteroidos/nfcd-binder-plugin {
+    inherit asteroidosMetaAsteroid;
+    inherit nfcd libncicore libnciplugin;
+  };
   "udev-droid-system" = pkgs.callPackage ../../../overlay/asteroidos/udev-droid-system {
     inherit asteroidosMetaAsteroid;
   };
@@ -50,6 +68,22 @@ in
   };
   "hoki-ngfd-config" = pkgs.callPackage ../../../overlay/asteroidos/hoki-ngfd-config {
     inherit asteroidosMetaSmartwatch;
+  };
+  "hoki-initramfs-machine" = pkgs.callPackage ../../../overlay/asteroidos/hoki-initramfs-machine {
+    inherit asteroidosMetaSmartwatch;
+  };
+  "android-system-data-hoki" = pkgs.callPackage ../../../overlay/asteroidos/android-system-data-hoki { };
+  libqofono = pkgs.callPackage ../../../overlay/asteroidos/libqofono { };
+  qofonoext = pkgs.callPackage ../../../overlay/asteroidos/qofonoext {
+    inherit libqofono;
+  };
+  libconnman-qt5 = pkgs.callPackage ../../../overlay/asteroidos/libconnman-qt5 { };
+  "geoclue-provider-hybris-binder" = pkgs.callPackage ../../../overlay/asteroidos/geoclue-provider-hybris-binder {
+    inherit libqofono qofonoext libconnman-qt5;
+  };
+  sensorfw = pkgs.callPackage ../../../overlay/asteroidos/sensorfw { };
+  "sensorfw-hybris-binder-plugins" = pkgs.callPackage ../../../overlay/asteroidos/sensorfw-hybris-binder-plugins {
+    inherit sensorfw;
   };
   "asteroid-hrm" = pkgs.callPackage ../../../overlay/asteroidos/asteroid-hrm {
     inherit asteroidosAsteroidHrm;
