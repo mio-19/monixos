@@ -1,0 +1,422 @@
+{
+    "asteroidos-asteroid-calculator": {
+        "cargoLock": null,
+        "date": "2026-02-21",
+        "extract": null,
+        "name": "asteroidos-asteroid-calculator",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "dd2b9b93afc153c617e81e6ad77caca9162392fb",
+            "sha256": "sha256-ZxcQJF69T0RkB3USAKKmcY8dIHSdQlCVFy7YLIprI3Q=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/AsteroidOS/asteroid-calculator.git"
+        },
+        "version": "dd2b9b93afc153c617e81e6ad77caca9162392fb"
+    },
+    "asteroidos-asteroid-calendar": {
+        "cargoLock": null,
+        "date": "2026-02-28",
+        "extract": null,
+        "name": "asteroidos-asteroid-calendar",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "f3c6a437bfeff71f457777f6e8f1d6e5674608dc",
+            "sha256": "sha256-Cl137r2dApBuoWP74zX1rLac1g0x+SaTINA/dGzKhZA=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/AsteroidOS/asteroid-calendar.git"
+        },
+        "version": "f3c6a437bfeff71f457777f6e8f1d6e5674608dc"
+    },
+    "asteroidos-asteroid-compass": {
+        "cargoLock": null,
+        "date": "2026-02-28",
+        "extract": null,
+        "name": "asteroidos-asteroid-compass",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "65bd5d49d41b3f55f001da108e39e79e613ad022",
+            "sha256": "sha256-n0jDH+4UomueHPeVRVFcCdz03iaSCXS9vb7sulq8nHs=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/AsteroidOS/asteroid-compass.git"
+        },
+        "version": "65bd5d49d41b3f55f001da108e39e79e613ad022"
+    },
+    "asteroidos-asteroid-diamonds": {
+        "cargoLock": null,
+        "date": "2026-02-28",
+        "extract": null,
+        "name": "asteroidos-asteroid-diamonds",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "af2e8d84617df5b1cee277d6250f96d05d7d58a6",
+            "sha256": "sha256-3v5abQn73dDh7qPHlbR+FrwiXibvEKEVau9Q02qJF5M=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/AsteroidOS/asteroid-diamonds.git"
+        },
+        "version": "af2e8d84617df5b1cee277d6250f96d05d7d58a6"
+    },
+    "asteroidos-asteroid-flashlight": {
+        "cargoLock": null,
+        "date": "2026-02-21",
+        "extract": null,
+        "name": "asteroidos-asteroid-flashlight",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "cd106ae07b9afadca712ae34a3ba8edd1a8f5148",
+            "sha256": "sha256-Fc5DrefBTQ03CCd3cUNvEjkyR7p5DVKq4upXdWxt66c=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/AsteroidOS/asteroid-flashlight.git"
+        },
+        "version": "cd106ae07b9afadca712ae34a3ba8edd1a8f5148"
+    },
+    "asteroidos-asteroid-hrm": {
+        "cargoLock": null,
+        "date": "2026-02-21",
+        "extract": null,
+        "name": "asteroidos-asteroid-hrm",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "f825486c1c9a8038a97e7689ad4c34a7156c5cb9",
+            "sha256": "sha256-v4GYnB68P+y0Bcb5Y7griLInCArP5PEFY6Q3MjDwx7Y=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/AsteroidOS/asteroid-hrm.git"
+        },
+        "version": "f825486c1c9a8038a97e7689ad4c34a7156c5cb9"
+    },
+    "asteroidos-asteroid-launcher": {
+        "cargoLock": null,
+        "date": "2026-02-28",
+        "extract": null,
+        "name": "asteroidos-asteroid-launcher",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "466609c34490e1879f4b05c0946e3038507796fa",
+            "sha256": "sha256-uZpUw8etilc/t0pmkvhIPuP19Dv993ZIqCM78j13NqI=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/AsteroidOS/asteroid-launcher.git"
+        },
+        "version": "466609c34490e1879f4b05c0946e3038507796fa"
+    },
+    "asteroidos-asteroid-music": {
+        "cargoLock": null,
+        "date": "2026-02-28",
+        "extract": null,
+        "name": "asteroidos-asteroid-music",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "a060d5dc3718ee01fdb70782a7272fce2a39e53a",
+            "sha256": "sha256-UvXAFNMJ4XBFsmoLNTYuULtnFKZMCXpReEMUO9TXOgA=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/AsteroidOS/asteroid-music.git"
+        },
+        "version": "a060d5dc3718ee01fdb70782a7272fce2a39e53a"
+    },
+    "asteroidos-asteroid-stopwatch": {
+        "cargoLock": null,
+        "date": "2026-02-21",
+        "extract": null,
+        "name": "asteroidos-asteroid-stopwatch",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "9c63021c9ebd5887a880954014a6d31545dceaaf",
+            "sha256": "sha256-1Tx18wWwLji8jP8e7JqWsX1RwcsfhkzVCG/MEtSKOX0=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/AsteroidOS/asteroid-stopwatch.git"
+        },
+        "version": "9c63021c9ebd5887a880954014a6d31545dceaaf"
+    },
+    "asteroidos-asteroid-timer": {
+        "cargoLock": null,
+        "date": "2026-02-21",
+        "extract": null,
+        "name": "asteroidos-asteroid-timer",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "f04baa1e99fd867fab9c83b84412def455a1266f",
+            "sha256": "sha256-sgOXFXPxapUUHxiiUildZGkA28Co/zZRPZJy+qb+9Jw=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/AsteroidOS/asteroid-timer.git"
+        },
+        "version": "f04baa1e99fd867fab9c83b84412def455a1266f"
+    },
+    "asteroidos-asteroid-weather": {
+        "cargoLock": null,
+        "date": "2026-02-28",
+        "extract": null,
+        "name": "asteroidos-asteroid-weather",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "32f886f1ea0a9e26121d1c728cae5257fa98fa17",
+            "sha256": "sha256-T+6sIHR87Xj4DiSlNLzNbljhzUwUHHU4WJQLn/hpVJw=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/AsteroidOS/asteroid-weather.git"
+        },
+        "version": "32f886f1ea0a9e26121d1c728cae5257fa98fa17"
+    },
+    "asteroidos-lipstick": {
+        "cargoLock": null,
+        "date": "2026-02-28",
+        "extract": null,
+        "name": "asteroidos-lipstick",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "b9962d7c81473f6fda1479ae3405fd6f112c6195",
+            "sha256": "sha256-KZIFUINC/HG++iWoI75nWri6YCbF+DcxsrslLBJCMGc=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/AsteroidOS/lipstick.git"
+        },
+        "version": "b9962d7c81473f6fda1479ae3405fd6f112c6195"
+    },
+    "asteroidos-meta-asteroid": {
+        "cargoLock": null,
+        "date": "2026-02-17",
+        "extract": null,
+        "name": "asteroidos-meta-asteroid",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "71878ed09e43cef93a86512149199526ce5e4f3f",
+            "sha256": "sha256-0baPfC7YjNsp3Y+C7yjO6H/WxoR4bDv4KyrmT2/ezsU=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/AsteroidOS/meta-asteroid.git"
+        },
+        "version": "71878ed09e43cef93a86512149199526ce5e4f3f"
+    },
+    "asteroidos-meta-smartwatch": {
+        "cargoLock": null,
+        "date": "2026-02-16",
+        "extract": null,
+        "name": "asteroidos-meta-smartwatch",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "3f8b55b48d286f36044b06eb2801ab53d7c490a5",
+            "sha256": "sha256-9blQ1VWzNjYC+pPmUje4jflkCABR4Kmy6iHAQ03g7EA=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/AsteroidOS/meta-smartwatch.git"
+        },
+        "version": "3f8b55b48d286f36044b06eb2801ab53d7c490a5"
+    },
+    "asteroidos-qml-asteroid": {
+        "cargoLock": null,
+        "date": "2026-02-14",
+        "extract": null,
+        "name": "asteroidos-qml-asteroid",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "40a1d8befb61ac7066e4ee885f49393f2ec0d377",
+            "sha256": "sha256-OYmp98UE88wnJ/T9Od5q63pdP33bkqufNwgrcwieO0w=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/AsteroidOS/qml-asteroid.git"
+        },
+        "version": "40a1d8befb61ac7066e4ee885f49393f2ec0d377"
+    },
+    "droidian-adaptation-lenovo-bronco": {
+        "cargoLock": null,
+        "date": "2025-12-13",
+        "extract": null,
+        "name": "droidian-adaptation-lenovo-bronco",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "cae81c1df119595ce340a25c39ca42a31a162086",
+            "sha256": "sha256-GD0yJnKXBhwYI4rwlxxq4XhtdR61Jo+FcYm+haC+odQ=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/droidian-devices/adaptation-droidian-bronco.git"
+        },
+        "version": "cae81c1df119595ce340a25c39ca42a31a162086"
+    },
+    "droidian-kernel-lenovo-bronco": {
+        "cargoLock": null,
+        "date": "2026-01-24",
+        "extract": null,
+        "name": "droidian-kernel-lenovo-bronco",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "051a9a15805146d91fa833c25a65af018ef5671a",
+            "sha256": "sha256-waLjUlm944WZAuODfji8sJBdnIzPTraCNxozORl4hd8=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/droidian-devices/linux-android-lenovo-bronco.git"
+        },
+        "version": "051a9a15805146d91fa833c25a65af018ef5671a"
+    },
+    "fossil-kernel-msm-fossil-cw": {
+        "cargoLock": null,
+        "date": "2023-03-16",
+        "extract": null,
+        "name": "fossil-kernel-msm-fossil-cw",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "c0b4c201f2d5a641defe19958a9b4c16f40d866b",
+            "sha256": "sha256-uf5Vln2M64ksT9BC4/R9gLV2yo6zK0vQeolyCUj/u+o=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/fossil-engineering/kernel-msm-fossil-cw.git"
+        },
+        "version": "c0b4c201f2d5a641defe19958a9b4c16f40d866b"
+    },
+    "mer-hybris-bluebinder": {
+        "cargoLock": null,
+        "date": "2022-11-17",
+        "extract": null,
+        "name": "mer-hybris-bluebinder",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "9c15cd87cd13e7176e805f959ee8602c491dd95a",
+            "sha256": "sha256-UPn9vp21PKL+KEqDjssiScOA8D3QmSAve7Ktmf9tLIk=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/mer-hybris/bluebinder.git"
+        },
+        "version": "9c15cd87cd13e7176e805f959ee8602c491dd95a"
+    },
+    "mer-hybris-qt5-qpa-hwcomposer-plugin": {
+        "cargoLock": null,
+        "date": "2026-01-09",
+        "extract": null,
+        "name": "mer-hybris-qt5-qpa-hwcomposer-plugin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "41e7bda3bc7a87a1cffd45d44bf6abef90460b38",
+            "sha256": "sha256-hZOy8ws4/9QFyJrXljanR6az59E8efcSLFb63zWqNCQ=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/mer-hybris/qt5-qpa-hwcomposer-plugin.git"
+        },
+        "version": "41e7bda3bc7a87a1cffd45d44bf6abef90460b38"
+    },
+    "postmarketos-pmaports": {
+        "cargoLock": null,
+        "date": "2026-03-01",
+        "extract": null,
+        "name": "postmarketos-pmaports",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "6a6b1f1e1a2ca4bfbc49ec05b1ec991227e2a769",
+            "sha256": "sha256-PDsXXfaLQFyGK6zidMArn/pImIJNr6RQkNgaALTTmjA=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://gitlab.postmarketos.org/postmarketOS/pmaports.git"
+        },
+        "version": "6a6b1f1e1a2ca4bfbc49ec05b1ec991227e2a769"
+    }
+}

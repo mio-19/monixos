@@ -1,6 +1,6 @@
 { fetchFromGitHub, fetchgit }:
 let
-  generated = import ./generated.nix {
+  generated = import ../../../_sources/generated.nix {
     inherit fetchgit fetchFromGitHub;
     fetchurl = null;
     dockerTools = null;

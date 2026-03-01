@@ -17,8 +17,8 @@ current Mobile NixOS-style tree:
 AsteroidOS and related upstream source pins are tracked with `nvfetcher`:
 
 * `nvfetcher.toml`
-* `sources/generated.nix` (generated)
-* `sources/default.nix` (consumed by `devices/hoki`)
+* `_sources/generated.nix` (generated)
+* `devices/families/asteroidos/sources.nix` (hand-maintained mapping consumed by `devices/hoki`)
 
 To update pinned sources:
 

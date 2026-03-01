@@ -3,7 +3,7 @@
   ...
 }:
 let
-  sources = import ../../sources/default.nix {
+  sources = import ../families/asteroidos/sources.nix {
     inherit (pkgs) fetchgit fetchFromGitHub;
   };
 in

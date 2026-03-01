@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-exec nix-shell -p nvfetcher --run 'nvfetcher -c ./nvfetcher.toml -o ./sources "$@"' -- "$@"
+exec nix-shell -p nvfetcher --run 'nvfetcher'
