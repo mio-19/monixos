@@ -72,6 +72,15 @@ in
     #
 
     # No such fixes as of now, this comment is merely a placeholder to keep the general structure.
+    sbc =
+      if final.stdenv.hostPlatform.system == "armv7l-linux" then
+        super.sbc.overrideAttrs (old: {
+          # GCC's newer default C mode rejects the armv6 "naked" helper calls used by sbc.
+          # Keep the older C semantics on armv7 targets.
+          NIX_CFLAGS_COMPILE = (old.NIX_CFLAGS_COMPILE or "") + " -std=gnu17";
+        })
+      else
+        super.sbc;
 
     # Things specific to mobile-nixos.
     # Not necessarily internals, but they probably won't go into <nixpkgs>.
